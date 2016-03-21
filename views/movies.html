@@ -1,0 +1,22 @@
+<!doctype HTML>
+<html>
+  <head><title>Movies</title></head>
+  <body>
+    <h1>Add a movie</h1>
+     <form action="/movie" method="POST">
+
+         Title <input type="text" name="title"> <br>
+         Year <input type="number" name="year" min="1900" maxlength="4"><br>
+         Imdb <input type="text" name="imdb"><br> <br>
+
+        <input type="submit" value="Submit"/>
+     </form>
+
+    <h1>Movies</h1>
+    {% for movie in movies %}
+    <li><a href="http://www.imdb.com/title/{{ movie.imdb }}">{{ movie.title }}, {{ movie.year }}</a></li>
+    {% else %}
+    <li>No movies found.</li>
+    {% endfor %}
+  </body>
+</html>
